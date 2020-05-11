@@ -3,4 +3,9 @@ const router = express.Router();
 
 const storeControllers = require('./storeControllers.js');
 
+router.post('new', storeControllers.createStore)
+router.patch('edit/:id', storeControllers.editStore)
+router.delete('delete/id', storeControllers.getStore)
+router.get(':name', storeControllers.getStore)
+
 module.exports = router;

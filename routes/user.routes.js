@@ -3,7 +3,7 @@ const router = express.Router();
 
 const userControllers = require('./userControllers.js');
 
-router.get('/edit/:id', userControllers.editUser)
-router.get('/delete/:id', userControllers.deleteUser)
-router.get('/:id', userControllers.getUsers)
+router.patch('/edit/:id', userControllers.editUser);
+router.delete('/delete/:id', userControllers.deleteUser);
+router.get('/:id', userControllers.getUser);
 module.exports = router;
