@@ -8,30 +8,50 @@ const storeSchema = new Schema(
       type: String,
       required: true,
     },
-    owner: [
+    about: {
+      type: String,
+      required: true,
+    },
+    theme: {
+      primaryColor: {
+        type: String,
+        default: 'white'
+      },
+      secondaryColor: {
+        type: String,
+        default: 'black'
+      },
+    },
+    products: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'Product',
       },
     ],
-    imageUrl: {
-      type: String,
-    },
+    orders: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Order',
+      },
+    ],
     phone: {
       type: String,
       required: true,
     },
+    type: {
+      type: String,
+    },
     location: {
-        type: {
-            type: String,
-            enum: ['Point'],
-            default: undefined
-        },
-        coordinates: {
-            type: [Number],
-            default: undefined
-        }
-      }
+      type: {
+        type: String,
+        enum: ['Point'],
+        default: undefined,
+      },
+      coordinates: {
+        type: [Number],
+        default: undefined,
+      },
+    },
   },
   {
     timestamps: true,

@@ -18,6 +18,7 @@ const productSchema = new Schema(
     },
     imageUrl: {
       type: String,
+      defautl: '' // ==> TODO
     },
     description: {
       type: String,

@@ -8,7 +8,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    passpord: {
+    password: {
       type: String,
       required: true,
     },
@@ -25,10 +25,7 @@ const userSchema = new Schema(
     ],
     imageUrl: {
       type: String,
-    },
-    phone: {
-      type: String,
-      required: true,
+      default: '', //to do
     },
   },
   {
