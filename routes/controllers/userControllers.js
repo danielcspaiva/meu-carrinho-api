@@ -5,12 +5,13 @@ const userControllers = {
   
   editUser(req, res) {
     const { id } = req.params;
-    const { name, number } = req.body;
+    const userInfo = {...req.body};
 
-    console.log(req.file);
-    console.log(id);
+    if(req.file){
+      userInfo.imageUrl = req.file.secure_url;
+    }
 
-    User.findByIdAndUpdate(id, { name, number })
+    User.findByIdAndUpdate(id, userInfo)
       .then( user => res.json({user}))
       .catch( error => res.status(404).json({ message: "user not found"}))
 

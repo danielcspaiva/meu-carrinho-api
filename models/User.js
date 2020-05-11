@@ -27,6 +27,9 @@ const userSchema = new Schema(
       type: String,
       default: '', //to do
     },
+    public_id: {
+      type: String,
+    }
   },
   {
     timestamps: true,
