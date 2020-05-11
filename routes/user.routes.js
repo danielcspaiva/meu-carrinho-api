@@ -6,7 +6,7 @@ const userControllers = require('./controllers/userControllers.js');
 //Cloudinary config import
 const uploadCloud = require('../configs/cloudinary');
 
-router.patch('/edit/:id', uploadCloud.single('file'), userControllers.editUser);
+router.patch('/edit/:id', uploadCloud.single('image'), userControllers.editUser);
 router.delete('/delete/:id', userControllers.deleteUser);
 router.get('/:id', userControllers.getUser);
 module.exports = router;

@@ -1,4 +1,5 @@
 const User = require('../../models/User');
+const cloudinary = require('cloudinary');
 
 const userControllers = {
   
@@ -7,6 +8,7 @@ const userControllers = {
     const { name, number } = req.body;
 
     console.log(req.file);
+    console.log(id);
 
     User.findByIdAndUpdate(id, { name, number })
       .then( user => res.json({user}))

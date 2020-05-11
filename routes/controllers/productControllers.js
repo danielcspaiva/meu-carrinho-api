@@ -14,7 +14,7 @@ const productController = {
     Product.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
       .then((product) => {
         product === null
-          ? res.status(404).json({ message: 'Product not founded' })
+          ? res.status(404).json({ message: 'Product not found' })
           : res.status(200).json({ message: 'Product updated', product });
       })
       .catch((error) => res.status(500).json({ error }));
