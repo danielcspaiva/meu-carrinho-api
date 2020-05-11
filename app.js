@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/api/v1/auth', require('./routes/auth.routes'));
 app.use('/api/v1/user', require('./routes/user.routes'));
 // app.use('/api/v1/store', require('./routes/store.routes'));
-// app.use('/api/v1/product', require('./routes/project.routes'));
+app.use('/api/v1/product', require('./routes/product.routes'));
 // app.use('/api/v1/order', require('./routes/order.routes'));
 
 module.exports = app;

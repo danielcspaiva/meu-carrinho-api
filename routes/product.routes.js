@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const productControllers = require('./controllers/productControllers.js');
+const productControllers = require('./controllers/productControllers');
 
 router.post('/new', productControllers.createProduct);
 router.patch('/edit/:id', productControllers.editProduct);
