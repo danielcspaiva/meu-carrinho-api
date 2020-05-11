@@ -2,9 +2,11 @@ const User = require('../../models/User');
 
 const userControllers = {
   
-  editUser() {
+  editUser(req, res) {
     const { id } = req.params;
     const { name, number } = req.body;
+
+    console.log(req.file);
 
     User.findByIdAndUpdate(id, { name, number })
       .then( user => res.json({user}))
@@ -12,7 +14,7 @@ const userControllers = {
 
   },
 
-  deleteUser() {
+  deleteUser(req, res) {
     const { id } = req.params;
 
     User.findByIdAndDelete(id)
@@ -20,7 +22,7 @@ const userControllers = {
       .error(error => res.status(500).json({ message: "user not found"}))
   },
 
-  getUser() {
+  getUser(req, res) {
     const { id } = req.params;
 
     User.findById(id)

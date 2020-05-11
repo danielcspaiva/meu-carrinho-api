@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const storeControllers = require('./storeControllers.js');
+const storeControllers = require('./controllers/storeControllers.js');
 
 router.post('new', storeControllers.createStore)
 router.patch('edit/:id', storeControllers.editStore)
