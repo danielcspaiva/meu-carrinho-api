@@ -9,3 +9,5 @@ router.delete('/delete/:id', projectControllers.deleteProduct);
 router.get('/:id', projectControllers.getProduct);
 
 module.exports = router;
+
+// e ai galera
