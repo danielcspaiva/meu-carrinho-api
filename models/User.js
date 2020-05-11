@@ -17,7 +17,7 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    store: [
+    stores: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Store',
