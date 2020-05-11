@@ -2,7 +2,14 @@ const Product = require('../../models/Product');
 
 const productController = {
   createProduct(req, res) {
-    Product.create(req.body)
+    const product = { ...req.body }
+    console.log(product)
+    if (req.file) {
+      product.imageUrl = req.file.secure_url
+      console.log(product.imageUrl)
+    }
+
+    Product.create(product)
       .then((product) =>
         res.status(200).json({ message: 'Product created', product })
       )
