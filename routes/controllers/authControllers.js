@@ -1,3 +1,5 @@
+const passport = require('passport');
+
 const authControllers = {
   login(){
     //to do
@@ -8,14 +10,18 @@ const authControllers = {
     //to do 
   },
 
-  loggedin(){
-    //to do
+  loggedin(req, res, next){
+      if (req.isAuthenticated()) {
+          res.status(202).json(req.user)
+          return
+      }
+      res.status(401).json({ message: 'Unauthorized' })
   },
 
-  logout() {
-    // TODO
-  },
-
+  logout(req, res, next){
+    req.logout()
+    res.status(200).json({ message: 'Logout successfully' })
+  },  
   
 }
 
