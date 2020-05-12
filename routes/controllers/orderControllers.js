@@ -16,9 +16,22 @@ const orderControllers = {
 
     Order.create(req.body)
       .then((order) => {
-       let storePromisse = Store.findByIdAndUpdate(storeId, { $push: { orders: order }})
-       order.forEach( product => Product.find)
-          
+        const promises = [];
+
+        order.products.forEach(element => {
+          promises.push(
+            Product.findByIdAndUpdate(
+              element.product, 
+              { $inc: { quantity: -(element.quantity) }}
+            )
+          );
+        })
+
+        promises.push(Store.findByIdAndUpdate(storeId, { $push: { orders: order }}));
+        
+        Promise.all(promises)
+          .then(() => res.status(200).json({ message: 'order created', order }))
+          .catch((error) => res.status(500).json({ error }));
       })
       .catch((error) => res.status(500).json({ error }));
   },

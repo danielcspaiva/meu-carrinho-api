@@ -41,6 +41,9 @@ const userControllers = {
           Store
             .findOneAndDelete({ _id: store._id })
             .then(async storeDeleted => {
+              if(storeDeleted.public_id){
+                deleteImageOnCloudinary(storeDeleted);
+              }
 
               await storeDeleted.orders.forEach(async order => {
                 try {
