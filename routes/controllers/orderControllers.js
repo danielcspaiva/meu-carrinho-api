@@ -21,6 +21,24 @@ const orderControllers = {
       })
       .catch(() => res.status(500).json({ error }));
   },
+  deleteOrder(req, res) {
+    const { id, storeId } = req.params;
+
+    Order.findOneAndDelete({ _id: id })
+      .then((order) => {
+        Store.findByIdAndUpdate(storeId, { $pull: { orders: order }})
+          .then(() => res.status(200).json({ message: 'order removed', order }))
+          .catch(() => res.status(500).json({ message: 'failed to remove order', error }));
+      })
+      .catch(() => res.status(500).json({ error }))
+  },
+  updateOrder(req, res) {
+    const { id } = req.params;
+
+    Order.findByIdAndUpdate(id, { status: 'done' })
+      .then(() => res.status(200).json({ message: 'order updated', order }))
+      .catch(() => res.status(500).json({ message: 'failed to update order status', error }));
+  }
 };
 
 module.exports = orderControllers;
