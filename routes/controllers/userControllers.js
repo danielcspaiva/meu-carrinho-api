@@ -39,6 +39,7 @@ const userControllers = {
     const { id } = req.params;
 
     User.findById(id)
+      .populate('stores')
       .then( user => res.status(200).json({user}))
       .catch( error => res.status(404).json({ message: "user not found"}))
   }
