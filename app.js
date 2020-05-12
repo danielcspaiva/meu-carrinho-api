@@ -39,6 +39,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+require('./configs/passport.config')
+require('./configs/google')
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -49,11 +52,6 @@ app.use(
   })
 );
 
-require('./configs/passport.config')
-require('./configs/google')
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use('/api/v1/auth', require('./routes/auth.routes'));
 app.use('/api/v1/user', require('./routes/user.routes'));
