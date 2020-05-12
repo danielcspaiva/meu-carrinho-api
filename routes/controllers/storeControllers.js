@@ -1,6 +1,7 @@
 const Store = require('../../models/Store');
 const User = require('../../models/User');
 const Product = require('../../models/Product');
+const Order = require('../../models/Order');
 const deleteImageOnCloudinary = require('../../helpers/helper_functions')
 
 const storeControllers = {
@@ -151,10 +152,14 @@ const storeControllers = {
       })
       .then(storeToRemove => {
           deleteImageOnCloudinary(storeToRemove)
+          
           let promisses = [];
           let productsToBeRemoved = storeToRemove.products;
-          let userPromisse = User.findByIdAndUpdate(user, {$pull: { stores: storeId }})
+          let ordersToBeRemoved = storeToRemove.orders;
+          let userPromisse = User.findByIdAndUpdate(user, {$pull: { stores: storeId }});
+          
           productsToBeRemoved.forEach((productId) => promisses.push(Product.findByIdAndDelete(productId))) 
+          ordersToBeRemoved.forEach((orderId) => promisses.push(Order.findByIdAndDelete(productId))) 
           
           Promise.all([...promisses, userPromisse])
             .then(() => res.status(200).json({
