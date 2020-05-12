@@ -1,5 +1,5 @@
 const User = require('../../models/User');
-require('../../helpers/helper_functions');
+const deleteImageOnCloudinary = require('../../helpers/helper_functions');
 
 
 const userControllers = {
@@ -29,10 +29,12 @@ const userControllers = {
 
     User.findOneAndDelete({_id:id})
       .then( user => {
-        deleteImageOnCloudinary(user);
+        if(user.public_id){
+          deleteImageOnCloudinary(user);
+        }
         res.status(200).json({ message: 'account deleted' })
       })
-      .error(error => res.status(500).json({ message: "user not found"}))
+      .catch(error => res.status(500).json({ message: "user not found"}))
   },
 
   getUser(req, res) {

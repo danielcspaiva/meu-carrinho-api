@@ -1,4 +1,6 @@
 const Store = require('../../models/Store');
+const User = require('../../models/User');
+const deleteImageOnCloudinary = require('../../helpers/helper_functions')
 
 const storeControllers = {
   createStore: (req, res, next) => {
@@ -51,7 +53,6 @@ const storeControllers = {
         public_id
       }
     }
-
     Store.create(storeToCreate)
       .then(newStore => {
         User.findByIdAndUpdate(user, {
@@ -64,12 +65,15 @@ const storeControllers = {
             newStore
           }))
           .catch((error) => res.status(500).json({
-            error
+            error: 'foi nesse'
           }))
       })
-      .catch((error) => res.status(500).json({
-        error
-      }))
+      .catch((error) => {
+        console.log(error)
+        res.status(500).json({
+        error: error
+      })
+    })
   },
   editStore: (req, res, next) => {
     const storeId = req.params.id;
@@ -123,15 +127,11 @@ const storeControllers = {
       }
 
       Store.findById(storeId)
-        .then(storeToEdit => {
-          cloudinary.v2.uploader.destroy(`${storeToEdit.public_id}`, function (error, result) {
-            console.log(result, error)
-          });
-        })
+        .then(storeToEdit => deleteImageOnCloudinary(storeToEdit))
         .catch(error => console.log(error));
     }
 
-    Store.findByIdAndUpdate(storeId, storeToEdit)
+    Store.findByIdAndUpdate(storeId, storeToEdit, { new: true })
       .then(updatedStore => res.status(200).json({
         message: 'Store Updated',
         updatedStore
@@ -148,9 +148,7 @@ const storeControllers = {
         _id: storeId
       })
       .then(storeToRemove => {
-        cloudinary.v2.uploader.destroy(`${storeToRemove.public_id}`, function (error, result) {
-          console.log(result, error)
-        });
+        deleteImageOnCloudinary(storeToRemove)
         User.findByIdAndUpdate(user, {
             $pull: {
               stores: storeId
