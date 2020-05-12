@@ -16,20 +16,9 @@ const orderControllers = {
 
     Order.create(req.body)
       .then((order) => {
-        Store.findByIdAndUpdate(storeId, { $push: { orders: order }})
-          .then(() => {
-
-            /**
-             * TODO:
-             * Aqui precisamos atualizar o quantity dos 
-             * products que vieram na order, no caso a order
-             * foi crida, portanto é preciso subtrair o
-             * quantity atual do product com o dessa order
-             */
-
-            res.status(200).json({ message: 'order created', order })
-          })
-          .catch((error) => res.status(500).json({ message: 'failed to create order', error }));
+       let storePromisse = Store.findByIdAndUpdate(storeId, { $push: { orders: order }})
+       order.forEach( product => Product.find)
+          
       })
       .catch((error) => res.status(500).json({ error }));
   },
