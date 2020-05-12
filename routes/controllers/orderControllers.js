@@ -16,20 +16,22 @@ const orderControllers = {
 
     Order.create(req.body)
       .then((order) => {
-        Store.findByIdAndUpdate(storeId, { $push: { orders: order }})
-          .then(() => {
+        const promises = [];
 
-            /**
-             * TODO:
-             * Aqui precisamos atualizar o quantity dos 
-             * products que vieram na order, no caso a order
-             * foi crida, portanto é preciso subtrair o
-             * quantity atual do product com o dessa order
-             */
+        order.products.forEach(element => {
+          promises.push(
+            Product.findByIdAndUpdate(
+              element.product, 
+              { $inc: { quantity: -(element.quantity) }}
+            )
+          );
+        })
 
-            res.status(200).json({ message: 'order created', order })
-          })
-          .catch((error) => res.status(500).json({ message: 'failed to create order', error }));
+        promises.push(Store.findByIdAndUpdate(storeId, { $push: { orders: order }}));
+        
+        Promise.all(promises)
+          .then(() => res.status(200).json({ message: 'order created', order }))
+          .catch((error) => res.status(500).json({ error }));
       })
       .catch((error) => res.status(500).json({ error }));
   },
