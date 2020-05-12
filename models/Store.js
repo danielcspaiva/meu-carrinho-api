@@ -44,6 +44,9 @@ const storeSchema = new Schema(
     imageUrl: {
       type: String,
     },
+    public_id: {
+      type: String,
+    },
     location: {
       type: {
         type: String,

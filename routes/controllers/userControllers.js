@@ -1,13 +1,6 @@
 const User = require('../../models/User');
-const cloudinary = require('cloudinary');
+require('../../helpers/helper_functions');
 
-//helper function to delete image on Cloudinary
-const deleteImageOnCloudinary = user => {
-  cloudinary.v2.uploader.destroy(
-    `${user.public_id}`, 
-    (error, result) => console.log(result, error)
-  );
-}
 
 const userControllers = {
   
@@ -17,7 +10,7 @@ const userControllers = {
 
     if(req.file){
       userInfo.imageUrl = req.file.secure_url;
-      userInfo.public_id = req.file.secure_url;
+      userInfo.public_id = req.file.public_id;
     }
 
     User.findByIdAndUpdate(id, userInfo)
@@ -34,7 +27,7 @@ const userControllers = {
   deleteUser(req, res) {
     const { id } = req.params;
 
-    User.findByIdAndDelete(id)
+    User.findOneAndDelete({_id:id})
       .then( user => {
         deleteImageOnCloudinary(user);
         res.status(200).json({ message: 'account deleted' })
@@ -46,6 +39,7 @@ const userControllers = {
     const { id } = req.params;
 
     User.findById(id)
+      .populate('stores')
       .then( user => res.status(200).json({user}))
       .catch( error => res.status(404).json({ message: "user not found"}))
   }
