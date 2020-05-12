@@ -27,7 +27,6 @@ const orderControllers = {
              * quantity atual do product com o dessa order
              */
 
-
             res.status(200).json({ message: 'order created', order })
           })
           .catch((error) => res.status(500).json({ message: 'failed to create order', error }));
