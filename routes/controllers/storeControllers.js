@@ -159,7 +159,7 @@ const storeControllers = {
           let userPromisse = User.findByIdAndUpdate(user, {$pull: { stores: storeId }});
           
           productsToBeRemoved.forEach((productId) => promisses.push(Product.findByIdAndDelete(productId))) 
-          ordersToBeRemoved.forEach((orderId) => promisses.push(Order.findByIdAndDelete(productId))) 
+          ordersToBeRemoved.forEach((orderId) => promisses.push(Order.findByIdAndDelete(orderId))) 
           
           Promise.all([...promisses, userPromisse])
             .then(() => res.status(200).json({
