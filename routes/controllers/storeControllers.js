@@ -162,10 +162,16 @@ const storeControllers = {
           ordersToBeRemoved.forEach((orderId) => promisses.push(Order.findByIdAndDelete(orderId))) 
           
           Promise.all([...promisses, userPromisse])
-            .then(() => res.status(200).json({
+            .then((values) => {
+              //checks for 'public_id' in the Promisses values and deletes it
+              values.map( item => {
+                if(item.public_id)deleteImageOnCloudinary(item.public.id);
+              })
+              res.status(200).json({
               message: 'Store and products deleted',
               storeToRemove
-            }))
+            })
+          })
             .catch(error => res.status(500).json({
               error
             }));
