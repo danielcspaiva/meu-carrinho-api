@@ -1,6 +1,7 @@
 const authControllers = {
   login(){
     //to do
+
   },
 
   signup(){
@@ -9,7 +10,13 @@ const authControllers = {
 
   loggedin(){
     //to do
-  }
+  },
+
+  logout() {
+    // TODO
+  },
+
+  
 }
 
 module.exports = authControllers;

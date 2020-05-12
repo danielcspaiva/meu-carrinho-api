@@ -18,7 +18,7 @@ const productController = {
           .then(() =>
             res.status(200).json({ message: 'Product created', product })
           )
-          .catch(() => res.status(500).json({ error }));
+          .catch((error) => res.status(500).json({ error }));
       })
       .catch((error) => res.status(500).json({ error }));
   },
@@ -47,7 +47,14 @@ const productController = {
       .then((product) => {
         product === null
           ? res.status(404).json({ message: 'Product not founded' })
-          : res.status(200).json({ message: 'Product deleted', product });
+          : Store.findOneAndUpdate(
+              { _id: id },
+              { $pull: { products: product } }
+            )
+              .then(() => {
+                res.status(200).json({ message: 'Product deleted', product });
+              })
+              .catch((error) => res.status(500).json({ error }));
       })
       .catch((error) => res.status(500).json({ error }));
   },
