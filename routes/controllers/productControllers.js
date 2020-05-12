@@ -13,9 +13,9 @@ const productController = {
 
     Product.create(product)
       .then((product) => {
-        const { id } = req.params;
+        const { storeId } = req.params;
 
-        Store.findOneAndUpdate({ _id: id }, { $push: { products: product } })
+        Store.findOneAndUpdate({ _id: storeId }, { $push: { products: product } })
           .then(() =>
             res.status(200).json({ message: 'Product created', product })
           )
@@ -45,7 +45,7 @@ const productController = {
       .catch((error) => res.status(500).json({ error }));
   },
   deleteProduct(req, res) {
-    const { id } = req.params;
+    const { id, storeId } = req.params;
 
     Product.findOneAndDelete({ _id: id })
       .then((product) => {
@@ -54,7 +54,7 @@ const productController = {
           return;
         }
         if (req.file) deleteImageOnCloudinary(product);
-        Store.findOneAndUpdate({ _id: id }, { $pull: { products: product } })
+        Store.findOneAndUpdate({ _id: storeId }, { $pull: { products: product } })
           .then(() => {
             res.status(200).json({ message: 'Product deleted' });
           })
