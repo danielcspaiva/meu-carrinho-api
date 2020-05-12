@@ -40,22 +40,26 @@ const orderControllers = {
 
     Order.findOneAndDelete({ _id: id })
       .then((order) => {
-        Store.findByIdAndUpdate(storeId, { $pull: { orders: order }})
-          .then(() => {
+        const promises = [];
 
-            /**
-             * TODO:
-             * Aqui precisamos atualizar o quantity
-             * dos products dessa order, no caso a order
-             * foi cancelada, portanto é preciso somar o
-             * quantity atual do product com o dessa order
-             */
+        order.products.forEach(element => {
+          console.log('product: ', element.product)
+          console.log('quantity: ', element.quantity)
+          promises.push(
+            Product.findByIdAndUpdate(
+              element.product, 
+              { $inc: { quantity: element.quantity }}
+            )
+          );
+        })
 
-            res.status(200).json({ message: 'order removed', order })
-          })
-          .catch(() => res.status(500).json({ message: 'failed to remove order', error }));
+        promises.push(Store.findByIdAndUpdate(storeId, { $pull: { orders: order._id }}));
+        
+        Promise.all(promises)
+          .then(() => res.status(200).json({ message: 'order deleted', order }))
+          .catch((error) => res.status(500).json({ error }));
       })
-      .catch(() => res.status(500).json({ error }))
+      .catch((error) => res.status(501).json({ error }))
   },
   updateOrder(req, res) {
     const { id } = req.params;
