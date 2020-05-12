@@ -3,14 +3,12 @@ const router = express.Router();
 
 const orderControllers = require('./controllers/orderControllers.js');
 
-router.get('/:id', orderControllers.getOrder);
 
 router.patch('/update/:id', orderControllers.getOrder);
-
+router.delete('/delete/:storeId/:id', orderControllers.deleteOrder);
 // id da loja
 router.post('/:storeId/new', orderControllers.createOrder);
-
-router.delete('/delete/:storeId/:id', orderControllers.deleteOrder);
+router.get('/:id', orderControllers.getOrder);
 
 
 module.exports = router;
