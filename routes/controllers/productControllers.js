@@ -2,11 +2,10 @@ const Product = require('../../models/Product');
 
 const productController = {
   createProduct(req, res) {
-    const product = { ...req.body }
-    console.log(product)
+    const product = { ...req.body };
+
     if (req.file) {
-      product.imageUrl = req.file.secure_url
-      console.log(product.imageUrl)
+      product.imageUrl = req.file.secure_url;
     }
 
     Product.create(product)
