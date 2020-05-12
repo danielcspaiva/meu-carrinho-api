@@ -6,3 +6,5 @@ const deleteImageOnCloudinary = user => {
     (error, result) => console.log(result, error)
   );
 }
+
+module.exports = deleteImageOnCloudinary;

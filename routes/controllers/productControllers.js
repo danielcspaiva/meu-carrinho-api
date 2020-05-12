@@ -1,6 +1,6 @@
 const Product = require('../../models/Product');
 const Store = require('../../models/Store');
-require('../../helpers/helper_functions');
+const deleteImageOnCloudinary = require('../../helpers/helper_functions');
 
 const productController = {
   createProduct(req, res) {
@@ -11,14 +11,14 @@ const productController = {
       product.public_id = req.file.public_id;
     }
 
-    Product.create(product)
+    Product
+      .create(product)
       .then((product) => {
         const { storeId } = req.params;
 
-        Store.findOneAndUpdate({ _id: storeId }, { $push: { products: product } })
-          .then(() =>
-            res.status(200).json({ message: 'Product created', product })
-          )
+        Store
+          .findOneAndUpdate({ _id: storeId }, { $push: { products: product } })
+          .then(() => res.status(200).json({ message: 'Product created', product }))
           .catch((error) => res.status(500).json({ error }));
       })
       .catch((error) => res.status(500).json({ error }));
@@ -27,37 +27,42 @@ const productController = {
     const { id } = req.params;
 
     const product = { ...req.body };
-    console.log(product);
+    
     if (req.file) {
       product.imageUrl = req.file.secure_url;
       product.public_id = req.file.public_id;
+      
+      Product
+        .findById(id)
+        .then((prevProduct) => deleteImageOnCloudinary(prevProduct))
+        .catch((error) => console.log('catch do cloudinary: ', error));
     }
 
-    Product.findOneAndUpdate({ _id: id }, product)
+    Product
+      .findOneAndUpdate({ _id: id }, product)
       .then((product) => {
-        if (product === null) {
-          res.status(404).json({ message: 'Product not found' });
-          return;
-        }
-        if (req.file) deleteImageOnCloudinary(product);
-        res.status(200).json({ message: 'Product updated' });
+        product === null
+          ? res.status(404).json({ message: 'Product not found' })
+          : res.status(200).json({ message: 'Product updated' });
       })
-      .catch((error) => res.status(500).json({ error }));
+      .catch((error) => res.status(500).json({ error: error }));
   },
   deleteProduct(req, res) {
     const { id, storeId } = req.params;
 
-    Product.findOneAndDelete({ _id: id })
+    Product
+      .findOneAndDelete({ _id: id })
       .then((product) => {
         if (product === null) {
           res.status(404).json({ message: 'Product not founded' });
           return;
         }
+
         if (req.file) deleteImageOnCloudinary(product);
-        Store.findOneAndUpdate({ _id: storeId }, { $pull: { products: product } })
-          .then(() => {
-            res.status(200).json({ message: 'Product deleted' });
-          })
+
+        Store
+          .findOneAndUpdate({ _id: storeId }, { $pull: { products: product._id } })
+          .then(() => res.status(200).json({ message: 'Product deleted' }))
           .catch((error) => res.status(500).json({ error }));
       })
       .catch((error) => res.status(500).json({ error }));
@@ -65,7 +70,8 @@ const productController = {
   getProduct(req, res) {
     const { id } = req.params;
 
-    Product.findById(id)
+    Product
+      .findById(id)
       .then((product) => {
         product === null
           ? res.status(404).json({ message: 'Product not founded' })
