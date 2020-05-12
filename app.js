@@ -10,7 +10,6 @@ const MongoStore = require('connect-mongo')(session);
 const cors = require('cors');
 
 const passport = require("passport");
-require('./configs/passport.config')
 
 const app = express();
 
@@ -46,9 +45,15 @@ app.use(passport.session());
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3001"], // <== this will be the URL of our React app (it will be running on port 3000)
+    origin: ["http://localhost:3000"], // <== this will be the URL of our React app (it will be running on port 3000)
   })
 );
+
+require('./configs/passport.config')
+require('./configs/google')
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/api/v1/auth', require('./routes/auth.routes'));
 app.use('/api/v1/user', require('./routes/user.routes'));
