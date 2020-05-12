@@ -1,5 +1,6 @@
 const Store = require('../../models/Store');
 const User = require('../../models/User');
+const Product = require('../../models/Product');
 const deleteImageOnCloudinary = require('../../helpers/helper_functions')
 
 const storeControllers = {
@@ -140,6 +141,7 @@ const storeControllers = {
         error
       }))
   },
+
   deleteStore: (req, res, next) => {
     const storeId = req.params.id;
     let user = req.user._id;
@@ -148,24 +150,26 @@ const storeControllers = {
         _id: storeId
       })
       .then(storeToRemove => {
-        deleteImageOnCloudinary(storeToRemove)
-        User.findByIdAndUpdate(user, {
-            $pull: {
-              stores: storeId
-            }
-          })
-          .then(() => res.status(200).json({
-            message: 'Store Deleted',
-            storeToRemove
-          }))
-          .catch(error => res.status(500).json({
-            error
-          }));
-      })
+          deleteImageOnCloudinary(storeToRemove)
+          let promisses = [];
+          let productsToBeRemoved = storeToRemove.products;
+          let userPromisse = User.findByIdAndUpdate(user, {$pull: { stores: storeId }})
+          productsToBeRemoved.forEach((productId) => promisses.push(Product.findByIdAndDelete(productId))) 
+          
+          Promise.all([...promisses, userPromisse])
+            .then(() => res.status(200).json({
+              message: 'Store and products deleted',
+              storeToRemove
+            }))
+            .catch(error => res.status(500).json({
+              error
+            }));
+        })
       .catch(error => res.status(500).json({
         error
       }));
   },
+
   getStore: (req, res, next) => {
     const storeName = req.params.name;
 
