@@ -4,8 +4,9 @@ const router = express.Router();
 const productControllers = require('./controllers/productControllers');
 const uploadCloud = require('../configs/cloudinary');
 
-router.post('/new', uploadCloud.single('image'), productControllers.createProduct);
-router.patch('/edit/:id', uploadCloud.single('file'), productControllers.editProduct);
+router.post('/:id/new', uploadCloud.single('image'), productControllers.createProduct);
+// :id da store
+router.patch('/edit/:id', uploadCloud.single('image'), productControllers.editProduct);
 router.delete('/delete/:id', productControllers.deleteProduct);
 router.get('/:id', productControllers.getProduct);
 

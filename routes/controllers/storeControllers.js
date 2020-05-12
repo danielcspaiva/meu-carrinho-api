@@ -2,7 +2,7 @@ const Store = require('../../models/Store');
 
 const storeControllers = {
   createStore: (req, res, next) => {
-    let user = req.user._id
+    // // let user = req.user._id
     const {
       name,
       about,
@@ -48,13 +48,13 @@ const storeControllers = {
     Store.create(storeToCreate)
       .then(newStore => {
         res.status(200).json({ message: 'Store Created', newStore })
-        User.findByIdAndUpdate(user, {
-          $push: {
-            stores: newStore
-          }
-        })
-        .then(res.status(200).json({ message: 'Store added to user array', user }))
-        .catch((error) => res.status(500).json({ error }))
+        // User.findByIdAndUpdate(user, {
+        //   $push: {
+        //     stores: newStore
+        //   }
+        // })
+        // // // .then(res.status(200).json({ message: 'Store added to user array', user }))
+        // .catch((error) => res.status(500).json({ error }))
       })
       .catch((error) => res.status(500).json({ error }))
   },

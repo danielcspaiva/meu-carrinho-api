@@ -1,4 +1,5 @@
 const Product = require('../../models/Product');
+const Store = require('../../models/Store');
 
 const productController = {
   createProduct(req, res) {
@@ -6,18 +7,32 @@ const productController = {
 
     if (req.file) {
       product.imageUrl = req.file.secure_url;
+      product.public_id = req.file.public_id;
     }
 
     Product.create(product)
-      .then((product) =>
-        res.status(200).json({ message: 'Product created', product })
-      )
+      .then((product) => {
+        const { id } = req.params;
+
+        Store.findOneAndUpdate({ _id: id }, { $push: { products: product } })
+          .then(() =>
+            res.status(200).json({ message: 'Product created', product })
+          )
+          .catch(() => res.status(500).json({ error }));
+      })
       .catch((error) => res.status(500).json({ error }));
   },
   editProduct(req, res) {
     const { id } = req.params;
 
-    Product.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
+    const product = { ...req.body };
+    console.log(product);
+    if (req.file) {
+      product.imageUrl = req.file.secure_url;
+      product.public_id = req.file.public_id;
+    }
+
+    Product.findOneAndUpdate({ _id: id }, product, { new: true })
       .then((product) => {
         product === null
           ? res.status(404).json({ message: 'Product not found' })

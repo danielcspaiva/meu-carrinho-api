@@ -20,6 +20,9 @@ const productSchema = new Schema(
       type: String,
       defautl: '' // ==> TODO
     },
+    public_id: {
+      type: String
+    },
     description: {
       type: String,
     },
