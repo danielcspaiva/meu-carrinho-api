@@ -12,6 +12,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    googleId: {
+      type:String
+    },
+    facebookId: {
+      type:String
+    },
     email: {
       type: String,
       required: true,

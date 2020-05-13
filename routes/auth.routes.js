@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 
 const authControllers = require('./controllers/authControllers.js');
 
@@ -15,5 +16,12 @@ router.get("/google", passport.authenticate("google", {
       "https://www.googleapis.com/auth/userinfo.email"
   ]
 }))
+
+router.get("/auth/google/callback", passport.authenticate("google", {
+  successRedirect: "/dashboard",
+  failureRedirect: "/" // here you would redirect to the login page using traditional login approach
+}), (req, res) => {
+  res.status(200).json({ message: 'Logado'})
+});
 
 module.exports = router;
