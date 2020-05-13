@@ -33,7 +33,6 @@ const authControllers = {
       })
       .catch(() => console.log('caimos no primeiro catch'))
   },
-
   login(req, res, next){
     passport.authenticate("local", (err, theUser, failureDetails) => {
       if (err) {
@@ -58,7 +57,6 @@ const authControllers = {
       });
     })(req, res, next);
   },
-
   loggedin(req, res, next){
       if (req.isAuthenticated()) {
           res.status(202).json(req.user)
@@ -66,12 +64,10 @@ const authControllers = {
       }
       res.status(401).json({ message: 'Unauthorized' })
   },
-
   logout(req, res, next){
     req.logout()
     res.status(200).json({ message: 'Logout successfully' })
   },  
-  
 }
 
 module.exports = authControllers;
