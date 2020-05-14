@@ -7,8 +7,8 @@ const deleteImageOnCloudinary = require('../../helpers/helper_functions');
 const storeControllers = {
   createStore: (req, res, next) => {
     let user = req.user._id;
-
-    const {
+    
+    let {
       name,
       about,
       primaryColor,
@@ -18,6 +18,12 @@ const storeControllers = {
       lat,
       lng,
     } = req.body;
+
+    // Provisório
+    if(!lat) {
+      lat = 0,
+      lng = 0
+    }
 
     const location = {
       type: 'Point',
@@ -82,7 +88,7 @@ const storeControllers = {
     const storeId = req.params.id;
     let user = req.user._id;
 
-    const {
+    let {
       name,
       about,
       primaryColor,
@@ -92,6 +98,12 @@ const storeControllers = {
       lat,
       lng,
     } = req.body;
+
+    // Provisório
+    if (!lat) {
+      lat = 0,
+      lng = 0
+    }
 
     const location = {
       type: 'Point',
