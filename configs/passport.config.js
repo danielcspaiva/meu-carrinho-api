@@ -7,7 +7,7 @@ const User = require('../models/User');
 passport.serializeUser((user, done) => done(null, user.id));
 
 passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => done(err, user));
+  User.findById(id).populate('stores').exec((err, user) => done(err, user));
 });
 
 passport.use(
@@ -17,10 +17,9 @@ passport.use(
       passwordField: 'password',
     },
     (email, password, done) => {
-      User.findOne({ email: email }, (err, user) => {
-        if (err) {
-          return done(err);
-        }
+      User.findOne({ email: email })
+      .populate('stores')
+      .then((user) => {
         if (!user) {
           return done(null, false, { message: 'Incorrect username.' });
         }
@@ -28,7 +27,12 @@ passport.use(
           return done(null, false, { message: 'Incorrect password.' });
         }
         return done(null, user);
-      });
+      })
+      .catch( err => {
+        console.log(err)
+        return done(err);
+      })
+
     }
   )
 );
