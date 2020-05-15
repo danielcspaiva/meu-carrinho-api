@@ -28,10 +28,18 @@ const authControllers = {
 
         User
           .create({ ...req.body, password: hashPass })
-          .then((user) => res.status(201).json({ user }))
-          .catch((error) => res.status(500).json({ error }))
+          .then((user) => {
+            req.login(user, (err) => {
+              if (err) {
+                res.status(500).json({ message: "Login after signup failed" });
+                return;
+              }
+              res.status(201).json(user);
+            })
+          })
+          .catch((error) => res.status(500).json({ error: error }));
       })
-      .catch(() => console.log('caimos no primeiro catch'))
+      .catch(() => console.log('caimos no primeiro catch'));
   },
   login(req, res, next){
     passport.authenticate("local", (err, theUser, failureDetails) => {
@@ -52,7 +60,6 @@ const authControllers = {
           return;
         }
   
-        // We are now logged in (that's why we can also send req.user)
         res.status(200).json(theUser);
       });
     })(req, res, next);
