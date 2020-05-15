@@ -64,8 +64,8 @@ const authControllers = {
   },
   loggedin(req, res, next){
       if(req.isAuthenticated()) {
-          res.status(202).json(req.user)
-          return
+        res.status(202).json(req.user)
+        return
       }
       res.status(401).json({ message: 'Unauthorized' })
   },
