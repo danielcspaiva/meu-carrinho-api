@@ -7,7 +7,7 @@ const deleteImageOnCloudinary = require('../../helpers/helper_functions');
 const storeControllers = {
   createStore: (req, res, next) => {
     let user = req.user._id;
-    
+    console.log('8=======D---------', req.file)
     let {
       name,
       about,
@@ -45,21 +45,16 @@ const storeControllers = {
     };
 
     if (req.file) {
+      console.log('Aqui')
       const { secure_url, public_id } = req.file;
-
-      storeToCreate = {
-        name,
-        about,
-        theme,
-        phone,
-        type,
-        location,
-        imageUrl: secure_url,
-        public_id,
-      };
+      console.log(secure_url)
+      storeToCreate.imageUrl = secure_url
+      storeToCreate.public_id = public_id   
     }
+
     Store.create(storeToCreate)
       .then((newStore) => {
+        console.log(newStore)
         User.findByIdAndUpdate(user, {
           $push: {
             stores: newStore,
@@ -214,6 +209,7 @@ const storeControllers = {
       name: storeName,
     })
       .populate('products')
+      .populate('orders')
       .then((store) => res.status(200).json(store))
       .catch((error) =>
         res.status(500).json({

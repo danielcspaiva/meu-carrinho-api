@@ -28,8 +28,10 @@ const authControllers = {
 
         User
           .create({ ...req.body, password: hashPass })
-          .then((user) => res.status(201).json({ user }))
-          .catch((error) => res.status(500).json({ error }))
+          .then((user) => 
+            res.status(201).json({ user })
+          )
+          .catch((error) => res.status(500).json({ error:"esse erro" }))
       })
       .catch(() => console.log('caimos no primeiro catch'))
   },
