@@ -30,11 +30,9 @@ const authControllers = {
           .create({ ...req.body, password: hashPass })
           .then((user) => {
             req.login(user, (err) => {
-              if (err) {
-                res.status(500).json({ message: "Login after signup failed" });
-                return;
-              }
-              res.status(201).json(user);
+              return err
+                ? res.status(500).json({ message: "Login after signup failed" })
+                : res.status(201).json(user);
             })
           })
           .catch((error) => res.status(500).json({ error: error }));
@@ -66,8 +64,8 @@ const authControllers = {
   },
   loggedin(req, res, next){
       if(req.isAuthenticated()) {
-          res.status(202).json(req.user)
-          return
+        res.status(202).json(req.user)
+        return
       }
       res.status(401).json({ message: 'Unauthorized' })
   },
