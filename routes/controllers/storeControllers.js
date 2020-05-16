@@ -208,8 +208,8 @@ const storeControllers = {
     Store.find({
       name: storeName,
     })
-      .populate('products')
       .populate('orders')
+      .populate('products')
       .then((store) => res.status(200).json(store))
       .catch((error) =>
         res.status(500).json({

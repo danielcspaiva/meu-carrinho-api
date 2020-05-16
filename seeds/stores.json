@@ -1,0 +1,146 @@
+[{
+  "_id": {
+    "$oid": "5ebeaf14e620bb1d582adb12"
+  },
+  "theme": {
+    "primaryColor": "#fbbad2",
+    "secondaryColor": "#9dff8f"
+  },
+  "products": [],
+  "orders": [],
+  "name": "Loja do daniel",
+  "about": "Loja 1 - Daniel",
+  "phone": "84994196273",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      0,
+      0
+    ]
+  },
+  "imageUrl": "https://res.cloudinary.com/dxaul4b4j/image/upload/v1589554964/Minha_Loja/carrinho-compras.png.png",
+  "public_id": "Minha_Loja/carrinho-compras.png",
+  "createdAt": {
+    "$date": "2020-05-15T15:02:44.382Z"
+  },
+  "updatedAt": {
+    "$date": "2020-05-15T15:02:44.382Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ebeaf4de620bb1d582adb13"
+  },
+  "theme": {
+    "primaryColor": "#ff8c7c",
+    "secondaryColor": "#5cfff7"
+  },
+  "products": [],
+  "orders": [],
+  "name": "Loja 2 do daniel",
+  "about": "Loja 2 do daniel",
+  "phone": "84994196273",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      0,
+      0
+    ]
+  },
+  "imageUrl": "https://res.cloudinary.com/dxaul4b4j/image/upload/v1589555021/Minha_Loja/220px-Kubanacan_Vol2.jpg.jpg",
+  "public_id": "Minha_Loja/220px-Kubanacan_Vol2.jpg",
+  "createdAt": {
+    "$date": "2020-05-15T15:03:41.490Z"
+  },
+  "updatedAt": {
+    "$date": "2020-05-15T15:03:41.490Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ebeaff6e620bb1d582adb15"
+  },
+  "theme": {
+    "primaryColor": "#00ff00",
+    "secondaryColor": "#0000ff"
+  },
+  "products": [],
+  "orders": [],
+  "name": "Loja 1 do ricky",
+  "about": "Descricao Loja 1 do Ricky",
+  "phone": "84994196273",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      0,
+      0
+    ]
+  },
+  "imageUrl": "https://res.cloudinary.com/dxaul4b4j/image/upload/v1589555190/Minha_Loja/23312-868x644.png.png",
+  "public_id": "Minha_Loja/23312-868x644.png",
+  "createdAt": {
+    "$date": "2020-05-15T15:06:30.854Z"
+  },
+  "updatedAt": {
+    "$date": "2020-05-15T15:06:30.854Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ebeb02ce620bb1d582adb16"
+  },
+  "theme": {
+    "primaryColor": "#f86dff",
+    "secondaryColor": "#78ff7f"
+  },
+  "products": [],
+  "orders": [],
+  "name": "Loja 2 do ricky",
+  "about": "descricao loja 2 ricky",
+  "phone": "84994196273",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      0,
+      0
+    ]
+  },
+  "imageUrl": "https://res.cloudinary.com/dxaul4b4j/image/upload/v1589555243/Minha_Loja/carbon%20%282%29.png.png",
+  "public_id": "Minha_Loja/carbon (2).png",
+  "createdAt": {
+    "$date": "2020-05-15T15:07:24.229Z"
+  },
+  "updatedAt": {
+    "$date": "2020-05-15T15:07:24.229Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5ebeb322e620bb1d582adb18"
+  },
+  "theme": {
+    "primaryColor": "#865dff",
+    "secondaryColor": "#a2ff94"
+  },
+  "products": [],
+  "orders": [],
+  "name": "Loja do rafael",
+  "about": "descricao loja do rafael",
+  "phone": "84994196273",
+  "location": {
+    "type": "Point",
+    "coordinates": [
+      0,
+      0
+    ]
+  },
+  "imageUrl": "https://res.cloudinary.com/dxaul4b4j/image/upload/v1589556002/Minha_Loja/bbb-logo-big-brother-brasil-logo.png.png",
+  "public_id": "Minha_Loja/bbb-logo-big-brother-brasil-logo.png",
+  "createdAt": {
+    "$date": "2020-05-15T15:20:02.540Z"
+  },
+  "updatedAt": {
+    "$date": "2020-05-15T15:20:02.540Z"
+  },
+  "__v": 0
+}]

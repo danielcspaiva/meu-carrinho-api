@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "5ebead976aae1d1c15d4e8f9"
+  },
+  "stores": [{
+      "$oid": "5ebeae4f6aae1d1c15d4e8fa"
+    },
+    {
+      "$oid": "5ebeaf14e620bb1d582adb12"
+    },
+    {
+      "$oid": "5ebeaf4de620bb1d582adb13"
+    }
+  ],
+  "imageUrl": "",
+  "name": "daniel",
+  "email": "daniel@daniel.com",
+  "password": "$2a$10$Xqfvb9DULWHjgwwAgBycge9xet4hcyBSevHlwSi9Gtn02Zqc/tvSq",
+  "createdAt": {
+    "$date": "2020-05-15T14:56:23.740Z"
+  },
+  "updatedAt": {
+    "$date": "2020-05-15T15:03:41.598Z"
+  },
+  "__v": 0
+}, {
+  "_id": {
+    "$oid": "5ebeaface620bb1d582adb14"
+  },
+  "stores": [{
+      "$oid": "5ebeaff6e620bb1d582adb15"
+    },
+    {
+      "$oid": "5ebeb02ce620bb1d582adb16"
+    }
+  ],
+  "imageUrl": "",
+  "name": "ricky",
+  "email": "ricky@ricky.com",
+  "password": "$2a$10$j4WpofSYIQHmGU7eKZXgq.QvTzZm.27cQkhmvBAA4q9VWnmCb2c4i",
+  "createdAt": {
+    "$date": "2020-05-15T15:05:16.618Z"
+  },
+  "updatedAt": {
+    "$date": "2020-05-15T15:07:24.329Z"
+  },
+  "__v": 0
+}, {
+  "_id": {
+    "$oid": "5ebeb2a3e620bb1d582adb17"
+  },
+  "stores": [{
+    "$oid": "5ebeb322e620bb1d582adb18"
+  }],
+  "imageUrl": "",
+  "name": "rafael",
+  "email": "rafael@rafael.com",
+  "password": "$2a$10$UYAjb/yWEUMEcyxLTWb5Mu2d7tSC8zmze.kDODd1cfBo014hr7p96",
+  "createdAt": {
+    "$date": "2020-05-15T15:17:55.270Z"
+  },
+  "updatedAt": {
+    "$date": "2020-05-15T15:20:02.653Z"
+  },
+  "__v": 0
+}]
