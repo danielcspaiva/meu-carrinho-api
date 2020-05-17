@@ -75,8 +75,8 @@ const productController = {
       .findById(id)
       .then((product) => {
         product === null
-          ? res.status(404).json({ message: 'Product not founded' })
-          : res.status(200).json({ message: 'Product founded', product });
+          ? res.status(404).json({ message: 'Product not found' })
+          : res.status(200).json({ message: 'Product found', product });
       })
       .catch((error) => res.status(500).json({ error }));
   },
