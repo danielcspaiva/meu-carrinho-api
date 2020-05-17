@@ -208,9 +208,15 @@ const storeControllers = {
     Store.find({
       name: storeName,
     })
-      .populate('orders')
       .populate('products')
-      .then((store) => res.status(200).json(store))
+      .populate('orders')
+      .populate({
+        path: 'orders',
+        populate: { path: 'products.product' }
+      })
+      .then((store) => {
+        res.status(200).json(store)
+      })
       .catch((error) =>
         res.status(500).json({
           error,
@@ -221,4 +227,10 @@ const storeControllers = {
 
 module.exports = storeControllers;
 
-// Boa Ricky
+// User.
+//   findOne({ name: 'Val' }).
+//   populate({
+//     path: 'friends',
+//     // Get friends of friends - populate the 'friends' array for every friend
+//     populate: { path: 'friends' }
+//   });
