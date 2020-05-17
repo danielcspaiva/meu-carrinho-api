@@ -64,9 +64,9 @@ const orderControllers = {
   updateOrder(req, res) {
     const { id } = req.params;
 
-    Order.findByIdAndUpdate(id, {status: 'done'}, {new: true})
+    Order.findByIdAndUpdate(id, {status: 'done'})
       .then(() => res.status(200).json({ message: 'order updated', order }))
-      .catch(() => res.status(500).json({ message: 'failed to update order status', error }));
+      .catch((error) => res.status(500).json({ message: 'failed to update order status', error }));
   }
 };
 
