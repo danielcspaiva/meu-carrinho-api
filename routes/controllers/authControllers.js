@@ -5,7 +5,6 @@ const User = require('../../models/User')
 const authControllers = {
   async signup(req, res){
     const { name, email, password } = req.body;
-
     if (!name || !email || !password) {
       res.status(406).json({ message: 'name, email or password not provided' });
       return;
