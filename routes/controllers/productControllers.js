@@ -39,6 +39,7 @@ const productController = {
         .catch((error) => console.log('catch do cloudinary: ', error));
     }
 
+
     Product
       .findOneAndUpdate({ _id: id }, product)
       .then((product) => {
