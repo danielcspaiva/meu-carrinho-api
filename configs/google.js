@@ -7,7 +7,7 @@ const User = require('../models/User');
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_AUTH_ID,
   clientSecret: process.env.GOOGLE_AUTH_SECRET,
-  callbackURL: "/auth/google/callback"
+  callbackURL: "http://localhost:5000/api/v1/auth/google/callback"
 }, (accessToken, refreshToken, profile, done) => {
 
   User.findOne({
@@ -21,12 +21,13 @@ passport.use(new GoogleStrategy({
 
       User.create({
           googleID: profile.id,
-          username: profile.name.givenName,
+          name: profile.name.givenName,
           email: profile.emails[0].value,
           imageUrl: profile.photos[0].value
         })
         .then(newUser => {
-          console.log(user)
+          console.log(newUser)
+          done(null, newUser)
         })
         .catch(err => done(err)); // closes User.create()
     })

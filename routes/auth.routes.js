@@ -17,9 +17,9 @@ router.get("/google", passport.authenticate("google", {
   ]
 }))
 
-router.get("/auth/google/callback", passport.authenticate("google", {
-  successRedirect: "/dashboard",
-  failureRedirect: "/" // here you would redirect to the login page using traditional login approach
+router.get("/google/callback", passport.authenticate("google", {
+  successRedirect: "http://localhost:3000/minhaslojas",
+  failureRedirect: "http://localhost:3000/" // here you would redirect to the login page using traditional login approach
 }), (req, res) => {
   res.status(200).json({ message: 'Logado'})
 });
