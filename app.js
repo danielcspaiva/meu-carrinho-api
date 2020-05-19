@@ -51,7 +51,7 @@ app.use(
     origin: [
       'http://localhost:3000', 
       process.env.CLIENT, 
-      'https://projeto-3-client-git-master.rafaelbogfreitas.now.sh/'
+      'https://projeto-3.now.sh'
     ], // <== this will be the URL of our React app (it will be running on port 3000)
   })
 );
