@@ -1,21 +1,19 @@
 # Projeto 3 - Back end server API
 #### TLDR: PLACEHOLDER DO ENDEREÇO DO PROJETO DEPLOYADO
 
-![Sacada do prédio](/public/images/readme/banner.png)
+![PLACEHOLDER NOME DO PROJETO](PLACEHOLDER FOTO DO PROJETO)
 
 ## About The Project
 
-The coronavirus pandemic changed the way we function as a society. The social distancing we had to undergo brougth back a sense of community that had been partially lost. Scenes of people gathering in their balconies with their family and neighbours became very common, as well as the problems the communities around the globe started facing due to the pandemic. In face of this situation we decided to create Sacada do Prédio.
-
-Sacada do Prédio is a web application where people can post their needs and other users from their community can help. The idea for the name came from the gatherings in the balconies (Sacada in portuguese). Our balconies are places where we can hang out and connect with people, but they also provide us with a view of our neighbourhood. Why not use it to better understant and help the people of our community?
-
-Our goal is to provide a platform where users can register and post new cases. Whenever a new case is posted, all users within that area are notified so that they can volunteer to help. The users can also see the cases in their community either in a map view or card view.
+PLACEHOLDER DESCRICAO DO PROJETO
 
 ### Built With:
 
 * [NodeJS](https://nodejs.org/en/) - JavaScript runtime Server.
 * [Express](https://expressjs.com/pt-br/) - Web framework.
-* [Handlebars](https://handlebarsjs.com/) - View Engine.
+* [React](https://reactjs.org/) - A JavaScript library for building user interfaces.
+* [Next.js](https://nextjs.org/) - Statically generated and SSR React applications.
+* [Cypress](https://www.cypress.io/) - Fast, easy and reliable testing for anything that runs in a browser (used for End-to-End testing).
 * [MongoDB](https://www.mongodb.com/) - NoSQL Database.
 * [Mongoose](https://mongoosejs.com/) - MongoDB object modeling for Node.js.
 * [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and Node.js.
@@ -24,26 +22,18 @@ Our goal is to provide a platform where users can register and post new cases. W
 * [Claudinary](https://cloudinary.com/) - Platform for storing images.
 * [Nodemailer](https://nodemailer.com/about/) - Automatic email sending via Node.js.
 * [Google OAuth](https://developers.google.com/identity/protocols/oauth2) - User authentication via Google account.
-* [Google Maps Api](https://developers.google.com/?hl=pt-br) - Google Maps and address autocomplete.
-* [Hotjar](https://www.hotjar.com/) - Website behavior analytics.
-* [Tawk.to](https://www.tawk.to/) - Live chat solution for support on our website.
-* [Heroku](https://www.heroku.com/) - Cloud platform where the project is deployed.
+<!-- * [Google Maps Api](https://developers.google.com/?hl=pt-br) - Google Maps and address autocomplete. -->
+<!-- * [Hotjar](https://www.hotjar.com/) - Website behavior analytics. -->
+<!-- * [Tawk.to](https://www.tawk.to/) - Live chat solution for support on our website. -->
+* [Heroku](https://www.heroku.com/) - Cloud platform where the project server is deployed.
+* [Vercel](https://vercel.com/) - Cloud platform where the project client is deployed.
+
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-The application UI consists in three main views:
-
-* Main page - Information about the project.
-* Dashboard - Dashboard where the user can see the cases nearby on a map or in the cards below.
-* Single case - This is where the user can see the details of a single case and get contact information of the user who registered the case.
-
-The views are illustrated in the screenshots below for desktop and mobile devices:
-
-![Desktop views](public/images/readme/Sacada_Readme_Desktop.png)
-
-![Mobile views](public/images/readme/Sacada_Readme_Mobile3.png)
+PLACEHOLDER FOR PROJECT OVERVIEW
 
 ### Prerequisites
 
@@ -51,7 +41,7 @@ In order to run this project locally you will need to:
 
 * Setup Google API keys for Google Maps and OAuth.
 * Setup Cloudinary API keys.
-* Setup MongoDB locally or on the cloud.
+* Setup MongoDB locally or in the cloud.
 * Install Node.js.
 
 
@@ -59,7 +49,7 @@ In order to run this project locally you will need to:
 
 1. Clone the repo
 ```sh
-git clone https://github.com/rafaelbogfreitas/sacada_do_predio.git
+git clone PROJECT GITHUB REPO
 ```
 2. Install NPM packages
 ```sh
@@ -77,7 +67,7 @@ npm run dev
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The project is deployed and can be accessed at http://www.sacadadopredio.com/
+The project is deployed and can be accessed at PLACEHOLDER ENDERECO DA APLICACAO DEPLOYADA
 
 
 <!-- CONTRIBUTING -->
@@ -105,10 +95,11 @@ git push origin feature/AmazingFeature
 <!-- CONTACT -->
 ## Contact
 
-Daniel Paiva - [twitter](https://twitter.com/danielcspaiva) - [email](mailto:danielcspaiva@gmail.com) - [linkedin](https://www.linkedin.com/in/danielcspaiva/)
+Daniel Paiva - [Github](https://github.com/danielcspaiva) - [twitter](https://twitter.com/danielcspaiva) - [email](mailto:danielcspaiva@gmail.com) - [linkedin](https://www.linkedin.com/in/danielcspaiva/)
 
-Rafael Freitas - [website](https://www.rafaelfreitas.com.br) - [email](mailto:rafaelbogfreitas@gmail.com) - [linkedin](https://www.linkedin.com/in/rafaelborgesfreitas/)
+Rafael Freitas - [Github](https://github.com/rafaelbogfreitas) - [website](https://www.rafaelfreitas.com.br) - [email](mailto:rafaelbogfreitas@gmail.com) - [linkedin](https://www.linkedin.com/in/rafaelborgesfreitas/)
 
+Ricky Almeida - [Github](https://github.com/rickyalmeidadev) - [email](mailto:ricky.almeida.dev@gmail.com) - [linkedin](https://www.linkedin.com/in/rickyalmeidadev/)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Special thanks
