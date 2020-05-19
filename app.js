@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
-// const cors = require('cors');
+const cors = require('cors');
 
 const passport = require("passport");
 
@@ -45,12 +45,12 @@ require('./configs/google')
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: ["http://localhost:3000"], // <== this will be the URL of our React app (it will be running on port 3000)
-//   })
-// );
+app.use(
+  cors({
+    credentials: true,
+    origin: [process.env.CLIENT, 'https://projeto-3-client-git-master.rafaelbogfreitas.now.sh/'], // <== this will be the URL of our React app (it will be running on port 3000)
+  })
+);
 
 
 app.use('/api/v1/auth', require('./routes/auth.routes'));
