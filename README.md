@@ -22,11 +22,11 @@ PLACEHOLDER DESCRICAO DO PROJETO
 * [Claudinary](https://cloudinary.com/) - Platform for storing images.
 * [Nodemailer](https://nodemailer.com/about/) - Automatic email sending via Node.js.
 * [Google OAuth](https://developers.google.com/identity/protocols/oauth2) - User authentication via Google account.
+* [Heroku](https://www.heroku.com/) - Cloud platform where the project server is deployed.
+* [Vercel](https://vercel.com/) - Cloud platform where the project client is deployed.
 <!-- * [Google Maps Api](https://developers.google.com/?hl=pt-br) - Google Maps and address autocomplete. -->
 <!-- * [Hotjar](https://www.hotjar.com/) - Website behavior analytics. -->
 <!-- * [Tawk.to](https://www.tawk.to/) - Live chat solution for support on our website. -->
-* [Heroku](https://www.heroku.com/) - Cloud platform where the project server is deployed.
-* [Vercel](https://vercel.com/) - Cloud platform where the project client is deployed.
 
 
 
