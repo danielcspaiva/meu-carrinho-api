@@ -4,7 +4,6 @@ const deleteImageOnCloudinary = require('../../helpers/helper_functions');
 
 const productController = {
   createProduct(req, res) {
-    console.log(req.body);
     const product = { ...req.body };
 
     if (req.file) {

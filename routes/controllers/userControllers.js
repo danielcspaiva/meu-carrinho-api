@@ -48,7 +48,6 @@ const userControllers = {
               await storeDeleted.orders.forEach(async order => {
                 try {
                   const orderDeleted = await Order.findOneAndDelete({ _id: order._id})
-                  console.log('orders deleted!', orderDeleted)
                 } catch (error) {
                   console.log('failed on deleting orders!', error)
                 }
@@ -58,7 +57,6 @@ const userControllers = {
                 try {
                   const productDeleted = await Product.findOneAndDelete({ _id: product._id})
                   deleteImageOnCloudinary(productDeleted);
-                  console.log('product deleted!', productDeleted);
                 } catch (error) {
                   console.log('failed on deleting product!', error)
                 }

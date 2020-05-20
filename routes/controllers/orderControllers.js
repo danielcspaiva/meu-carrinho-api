@@ -68,8 +68,6 @@ const orderControllers = {
         const promises = [];
 
         order.products.forEach(element => {
-          console.log('product: ', element.product)
-          console.log('quantity: ', element.quantity)
           promises.push(
             Product.findByIdAndUpdate(
               element.product, 

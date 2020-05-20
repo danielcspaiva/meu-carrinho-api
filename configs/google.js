@@ -26,7 +26,7 @@ passport.use(new GoogleStrategy({
           imageUrl: profile.photos[0].value
         })
         .then(newUser => {
-          console.log(newUser)
+          // console.log(newUser)
           done(null, newUser)
         })
         .catch(err => done(err)); // closes User.create()
