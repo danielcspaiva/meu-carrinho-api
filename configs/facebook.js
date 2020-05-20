@@ -24,7 +24,7 @@ passport.use(new FacebookStrategy({
             imageUrl: profile.photos[0].value
           })
           .then(newUser => {
-            console.log(user)
+            // console.log(user)
           })
           .catch(err => done(err)); // closes User.create()
       })
