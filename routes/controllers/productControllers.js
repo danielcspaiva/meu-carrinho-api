@@ -8,8 +8,11 @@ const productController = {
     const product = { ...req.body };
 
     if (req.file) {
-      product.imageUrl = req.file.secure_url;
-      product.public_id = req.file.public_id;
+      const { secure_url, public_id } = req.file;
+      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,r_0,462,x_0/');
+
+      product.imageUrl = customUrl;
+      product.public_id = public_id;
     }
 
     Product
@@ -30,8 +33,11 @@ const productController = {
     const product = { ...req.body };
     
     if (req.file) {
-      product.imageUrl = req.file.secure_url;
-      product.public_id = req.file.public_id;
+      const { secure_url, public_id } = req.file;
+      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,r_0,462,x_0/');
+
+      product.imageUrl = customUrl;
+      product.public_id = public_id;
       
       Product
         .findById(id)
