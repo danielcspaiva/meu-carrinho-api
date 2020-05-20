@@ -47,7 +47,6 @@ const storeControllers = {
       const { secure_url, public_id } = req.file;
       const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,w_462/');
 
-      
       storeToCreate.imageUrl = customUrl;
       storeToCreate.public_id = public_id;
     }
