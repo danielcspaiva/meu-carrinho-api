@@ -9,7 +9,10 @@ const productController = {
 
     if (req.file) {
       const { secure_url, public_id } = req.file;
-      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,r_0,462,x_0/');
+      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,w_462/');
+
+      console.log(secure_url);      
+      console.log(customUrl);
 
       product.imageUrl = customUrl;
       product.public_id = public_id;
@@ -34,7 +37,7 @@ const productController = {
     
     if (req.file) {
       const { secure_url, public_id } = req.file;
-      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,r_0,462,x_0/');
+      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,w_462/');
 
       product.imageUrl = customUrl;
       product.public_id = public_id;
