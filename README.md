@@ -1,11 +1,12 @@
-# Projeto 3 - Back end server API
-#### TLDR: PLACEHOLDER DO ENDEREÇO DO PROJETO DEPLOYADO
+# Meu Carrinho
 
-![PLACEHOLDER NOME DO PROJETO](PLACEHOLDER FOTO DO PROJETO)
+#### TLDR: https://projeto-3.now.sh
+
+![Meu Carrinho](/media/feiralivre_Prancheta1cópia4.png)
 
 ## About The Project
 
-PLACEHOLDER DESCRICAO DO PROJETO
+During the Covid-19 pandemic many physical stores had to close to comply with social distancing orders and the world has seen a rapid shift to Ecommerce. Most of the small businesses had no time or money to build their own Ecommerce. Given those circunstances we build Meu carrinho, a digital shopping cart made to make it easier for small shops to sell online and on social media and to manage their small businesses.
 
 ### Built With:
 
@@ -24,11 +25,6 @@ PLACEHOLDER DESCRICAO DO PROJETO
 * [Google OAuth](https://developers.google.com/identity/protocols/oauth2) - User authentication via Google account.
 * [Heroku](https://www.heroku.com/) - Cloud platform where the project server is deployed.
 * [Vercel](https://vercel.com/) - Cloud platform where the project client is deployed.
-<!-- * [Google Maps Api](https://developers.google.com/?hl=pt-br) - Google Maps and address autocomplete. -->
-<!-- * [Hotjar](https://www.hotjar.com/) - Website behavior analytics. -->
-<!-- * [Tawk.to](https://www.tawk.to/) - Live chat solution for support on our website. -->
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -37,19 +33,22 @@ PLACEHOLDER FOR PROJECT OVERVIEW
 
 ### Prerequisites
 
+This project consists in two different repositories:
+
+* NextJS Application.
+* Rest API server.
+
 In order to run this project locally you will need to:
 
-* Setup Google API keys for Google Maps and OAuth.
-* Setup Cloudinary API keys.
-* Setup MongoDB locally or in the cloud.
-* Install Node.js.
+* Clone and install the NextJS Application - https://github.com/rafaelbogfreitas/Projeto-3-client.
+* Clone and install this repository - https://github.com/danielcspaiva/Projeto-3.
 
 
 ### Installation
 
 1. Clone the repo
 ```sh
-git clone PROJECT GITHUB REPO
+git clone (repository url address)
 ```
 2. Install NPM packages
 ```sh
@@ -59,7 +58,7 @@ npm install
 ```sh
 npm start
 ```
-Or run with Nodemon
+Or
 ```sh
 npm run dev
 ```
@@ -67,7 +66,7 @@ npm run dev
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The project is deployed and can be accessed at PLACEHOLDER ENDERECO DA APLICACAO DEPLOYADA
+The project is deployed and can be accessed at https://projeto-3.now.sh.
 
 
 <!-- CONTRIBUTING -->
