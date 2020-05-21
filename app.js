@@ -50,9 +50,8 @@ app.use(
     credentials: true,
     origin: [
       'http://localhost:3000', 
-      process.env.CLIENT, 
-      'https://projeto-3.now.sh',
-      'https://meu-carrinho.herokuapp.com/'
+        process.env.CLIENT, 
+      'https://meu-carrinho.now.sh'
     ], // <== this will be the URL of our React app (it will be running on port 3000)
   })
 );
