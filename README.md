@@ -6,7 +6,7 @@
 
 ## About The Project
 
-During the Covid-19 pandemic many physical stores had to close to comply with social distancing orders and the world has seen a rapid shift to Ecommerce. Most of the small businesses had no time or money to build their own Ecommerce. Given those circunstances we build Meu carrinho, a digital shopping cart made to make it easier for small shops to sell online and on social media and to manage their small businesses.
+During the Covid-19 pandemic many physical stores had to close in order to comply with social distancing orders. Since then the world has seen a rapid shift to Ecommerce, but most of the small businesses had no time or money to build their own Ecommerce infrastructure. Given those circunstances we build Meu carrinho, a digital shopping cart made to make it easier for small shops to sell online and on social media and to manage their small businesses.
 
 ### Built With:
 
