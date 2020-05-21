@@ -29,7 +29,7 @@ During the Covid-19 pandemic many physical stores had to close to comply with so
 <!-- GETTING STARTED -->
 ## Getting Started
 
-PLACEHOLDER FOR PROJECT OVERVIEW
+<!-- PLACEHOLDER FOR PROJECT OVERVIEW -->
 
 ### Prerequisites
 
