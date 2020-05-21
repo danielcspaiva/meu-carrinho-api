@@ -7,7 +7,6 @@ const deleteImageOnCloudinary = require('../../helpers/helper_functions');
 const storeControllers = {
   createStore: (req, res, next) => {
     let user = req.user._id;
-    console.log('8=======D---------', req.file)
     let {
       name,
       about,
@@ -45,16 +44,15 @@ const storeControllers = {
     };
 
     if (req.file) {
-      console.log('Aqui')
       const { secure_url, public_id } = req.file;
-      console.log(secure_url)
-      storeToCreate.imageUrl = secure_url
-      storeToCreate.public_id = public_id   
+      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,w_462/');
+
+      storeToCreate.imageUrl = customUrl;
+      storeToCreate.public_id = public_id;
     }
 
     Store.create(storeToCreate)
       .then((newStore) => {
-        console.log(newStore)
         User.findByIdAndUpdate(user, {
           $push: {
             stores: newStore,
@@ -121,6 +119,7 @@ const storeControllers = {
 
     if (req.file) {
       const { secure_url, public_id } = req.file;
+      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,w_462/');
 
       storeToEdit = {
         name,
@@ -129,7 +128,7 @@ const storeControllers = {
         phone,
         type,
         location,
-        imageUrl: secure_url,
+        imageUrl: customUrl,
         public_id,
       };
 
