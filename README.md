@@ -40,8 +40,8 @@ This project consists in two different repositories:
 
 In order to run this project locally you will need to:
 
-* Clone and install the NextJS Application - https://github.com/rafaelbogfreitas/Projeto-3-client.
-* Clone and install this repository - https://github.com/danielcspaiva/Projeto-3.
+* Clone and install the NextJS Application - https://github.com/rafaelbogfreitas/meu-carrinho.
+* Clone and install this repository - https://github.com/danielcspaiva/meu-carrinho-api.
 
 
 ### Installation
