@@ -1,6 +1,6 @@
 # Meu Carrinho
 
-#### TLDR: https://projeto-3.now.sh
+#### TLDR: https://meu-carrinho.now.sh
 
 ![Meu Carrinho](/media/meucarrinho_banner_2.png)
 
@@ -66,7 +66,7 @@ npm run dev
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-The project is deployed and can be accessed at https://projeto-3.now.sh.
+The project is deployed and can be accessed at https://meu-carrinho.now.sh.
 
 
 <!-- CONTRIBUTING -->
