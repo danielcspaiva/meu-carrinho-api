@@ -18,8 +18,8 @@ router.get("/google", passport.authenticate("google", {
 }))
 
 router.get("/google/callback", passport.authenticate("google", {
-  successRedirect: "https://projeto-3.now.sh/minhaslojas",
-  failureRedirect: "https://projeto-3.now.sh/" // here you would redirect to the login page using traditional login approach
+  successRedirect: "https://meu-carrinho.now.sh/minhaslojas",
+  failureRedirect: "https://meu-carrinho.now.sh/" // here you would redirect to the login page using traditional login approach
 }), (req, res) => {
   res.status(200).json({ message: 'Logado'})
 });
