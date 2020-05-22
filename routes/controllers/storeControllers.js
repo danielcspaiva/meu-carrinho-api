@@ -45,9 +45,8 @@ const storeControllers = {
 
     if (req.file) {
       const { secure_url, public_id } = req.file;
-      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,w_462/');
 
-      storeToCreate.imageUrl = customUrl;
+      storeToCreate.imageUrl = secure_url;
       storeToCreate.public_id = public_id;
     }
 
@@ -119,7 +118,6 @@ const storeControllers = {
 
     if (req.file) {
       const { secure_url, public_id } = req.file;
-      const customUrl = secure_url.split('upload/').join('upload/c_thumb,g_auto,h_462,w_462/');
 
       storeToEdit = {
         name,
@@ -128,7 +126,7 @@ const storeControllers = {
         phone,
         type,
         location,
-        imageUrl: customUrl,
+        imageUrl: secure_url,
         public_id,
       };
 
